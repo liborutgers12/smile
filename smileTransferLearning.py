@@ -28,15 +28,19 @@ test_y = np_utils.to_categorical(test_y, num_classes)
 
 print('The train data shape: ', train_X.shape)
 img_rows, img_cols = train_X.shape[1:]
+img_chs = 3 
 
 # add additional dimension
-test_X = test_X.reshape(test_X.shape[0], test_X.shape[1], test_X.shape[2], 1)
-train_X = train_X.reshape(train_X.shape[0], train_X.shape[1], train_X.shape[2], 1)
+# test_X = test_X.reshape(test_X.shape[0], test_X.shape[1], test_X.shape[2], 1)
+# train_X = train_X.reshape(train_X.shape[0], train_X.shape[1], train_X.shape[2], 1)
+# expand the images into three channel in order to apply the VGG19 using transfer learning
+test_X = np.repeat(test_X[:, :, :, np.newaxis], img_chs, axis=3)
+train_X = np.repeat(train_X[:, :, :, np.newaxis], img_chs, axis=3)
 
 train_X /= 255.0
 test_X /= 255.0
 
-model = applications.VGG19(weights = "imagenet", include_top=False, input_shape = (img_rows, img_cols, 1))
+model = applications.VGG19(weights = "imagenet", include_top=False, input_shape = (img_rows, img_cols, img_chs))
 
 # Freeze the layers we don't want to train. Here the first 15 layers are freezed because the smile dataset is relatively small.
 for layer in model.layers[:15]:
