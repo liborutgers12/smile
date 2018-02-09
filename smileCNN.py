@@ -36,19 +36,14 @@ dense1 = 1024
 dense2 = 256
 
 model = Sequential()
-model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(img_rows, img_cols,1)))
-model.add(Conv2D(32, (3, 3), activation='relu'))
+model.add(Conv2D(32, (3, 3), activation='relu', padding='same', input_shape=(img_rows, img_cols,1)))
+model.add(Conv2D(32, (3, 3), activation='relu', padding='same'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.2))
 
-model.add(Conv2D(64, (3, 3), activation='relu'))
-model.add(Conv2D(64, (3, 3), activation='relu'))
+model.add(Conv2D(64, (3, 3), activation='relu', padding='same'))
+model.add(Conv2D(64, (3, 3), activation='relu', padding='same'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.2))
-
-model.add(Conv2D(64, (3, 3), activation='relu'))
-model.add(Conv2D(64, (3, 3), activation='relu'))
-# model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.2))
 
 model.add(Flatten())
@@ -57,7 +52,9 @@ model.add(Dropout(0.2))
 model.add(Dense(dense2, activation='relu'))
 model.add(Dropout(0.2))
 model.add(Dense(num_classes, activation='softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 model.summary()
 
