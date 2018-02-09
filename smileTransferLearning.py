@@ -58,7 +58,7 @@ for layer in model.layers[:15]:
     layer.trainable = False
     
 #Adding custom Layers 
-dense1 = 1024
+dense1 = 512
 dense2 = 256
 
 x = model.output
@@ -74,7 +74,7 @@ model_final = Model(input = model.input, output = predicts)
 
 # compile the model
 sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
-model_final.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+model_final.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 model_final.summary()
 
@@ -83,3 +83,21 @@ model_final.fit(train_X, train_y,batch_size=config.batch_size,
     validation_data=(test_X, test_y), callbacks=[WandbKerasCallback()])
 
 model_final.save("smileTransferLearning.h5")
+
+"""
+datagen = ImageDataGenerator(
+    featurewise_center=True,
+    featurewise_std_normalization=True,
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    horizontal_flip=True)
+
+# compute quantities required for featurewise normalization
+# (std, mean, and principal components if ZCA whitening is applied)
+datagen.fit(x_train)
+
+# fits the model on batches with real-time data augmentation:
+model.fit_generator(datagen.flow(x_train, y_train, batch_size=32),
+                    steps_per_epoch=len(x_train) / 32, epochs=epochs)
+"""
