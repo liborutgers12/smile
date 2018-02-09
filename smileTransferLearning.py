@@ -1,4 +1,5 @@
 import numpy as np
+import scipy 
 from keras.models import Sequential, Model
 from keras.layers.core import Dense, Dropout, Flatten, Reshape
 from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
@@ -26,6 +27,9 @@ num_classes = 2
 train_y = np_utils.to_categorical(train_y, num_classes)
 test_y = np_utils.to_categorical(test_y, num_classes)
 
+train_X /= 255.0
+test_X /= 255.0
+
 print('The train data shape: ', train_X.shape)
 img_rows, img_cols = train_X.shape[1:]
 img_chs = 3 
@@ -36,11 +40,18 @@ img_chs = 3
 # expand the images into three channel in order to apply the VGG19 using transfer learning
 test_X = np.repeat(test_X[:, :, :, np.newaxis], img_chs, axis=3)
 train_X = np.repeat(train_X[:, :, :, np.newaxis], img_chs, axis=3)
+new_shape = (48,48,3)
+X_test_new = np.empty(shape=(test_X.shape[0],)+new_shape)
+for idx in xrange(test_X.shape[0]):
+    X_test_new[idx] = scipy.misc.imresize(test_X[idx], new_shape)
+X_train_new = np.empty(shape=(train_X.shape[0],)+new_shape)
+for idx in xrange(train_X.shape[0]):
+    X_train_new[idx] = scipy.misc.imresize(train_X[idx], new_shape)
 
-train_X /= 255.0
-test_X /= 255.0
-
-model = applications.VGG16(weights = "imagenet", include_top=False, input_shape = (img_rows, img_cols, img_chs))
+train_X = X_train_new
+test_X = X_test_new
+    
+model = applications.VGG16(weights = "imagenet", include_top=False, input_shape = (48, 48, 3))
 
 # Freeze the layers we don't want to train. Here the first 15 layers are freezed because the smile dataset is relatively small.
 for layer in model.layers[:15]:
