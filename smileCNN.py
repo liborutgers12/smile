@@ -2,7 +2,7 @@ import numpy as np
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Flatten, Reshape
 from keras.layers import Conv2D, MaxPooling2D
-from keras.optimizers import SGD
+from keras import optimizers
 from keras.utils import np_utils
 from wandb.wandb_keras import WandbKerasCallback
 import wandb
