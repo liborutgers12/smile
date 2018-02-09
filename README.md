@@ -50,9 +50,9 @@ wandb run smile.py
 
 ## Solutions
 
-### Baseline: flatten(1) + output layer(1)
+### Baseline: [smile.py](./smile.py) flatten(1) + output layer(1)
 
-### Simple, Effective: Simple CNN
+### Simple, Effective: [smileCNN.py](./smileCNN.py) Simple CNN
 - Normalize train_X and test_X  :+1:
 - Add dense layers              :+1:
 - Add convolutional layer(s)    :+1:
