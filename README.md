@@ -42,15 +42,6 @@ Now try running the default scaffolding:
 wandb run smile.py
 ```
 
-## Help
-
-1. [Slack Channel](https://join.slack.com/t/doloreslabs/shared_invite/enQtMzExNjMzMDcwMzM4LTk4YTFjN2I0YWJkNTU5OGQ1YTI5NDU5ODU2MzUyYjVjM2Y0OTIyZDgwMmNiY2U3N2ZjNmQzOThmMzkwNjA0ODQ)
-2. [Keras Docs](https://keras.io/getting-started/sequential-model-guide/)
-3. [Previous Work](https://github.com/oarriaga/face_classification)
-4. [Other datasets](http://www.face-rec.org/databases/)
-5. [Data Augmentation](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html)
-6. [Transfer Learning](https://www.learnopencv.com/keras-tutorial-transfer-learning-using-pre-trained-models/)
-
 ## Files
 
 - smile.py - scaffolding to get you started
