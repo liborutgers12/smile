@@ -57,23 +57,16 @@ wandb run smile.py
 - smiledataset.py - loads the data
 - master.zip - the face dataset, smiles are in the positive directory the rest are in the negative directory
 
-## Stuck?
+## Solutions
 
-1. Ask for or help
-2. https://blog.slavv.com/37-reasons-why-your-neural-network-is-not-working-4020854bd607
+### Baseline: flatten(1) + output layer(1)
 
-## Extra Credit
- 
-Deploy the model.  
-
-## Ideas
-
-### Simple, Effective:
-- Normalize train_X and test_X
-- Add dense layers
-- Add convolutional layer(s)?
-- Add dropout
-- Change learning rate
+### Simple, Effective: Simple CNN
+- Normalize train_X and test_X  :+1:
+- Add dense layers              :+1:
+- Add convolutional layer(s)    :+1:
+- Add dropout                   :+1:  
+- Change learning rate          :+1:
 - Experiment with activation functions
 
 ### Fancier, Maybe Effective:
@@ -81,10 +74,9 @@ Deploy the model.
 - Transfer Learning (https://www.learnopencv.com/keras-tutorial-transfer-learning-using-pre-trained-models/)
 Other ideas?
 
-## GPU on AWS
+## Stuck?
 
-```
-export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.1-cp27-none-linux_x86_64.whl
-sudo pip install --upgrade $TF_BINARY_URL
-```
+1. Ask for or help
+2. https://blog.slavv.com/37-reasons-why-your-neural-network-is-not-working-4020854bd607
+
 
