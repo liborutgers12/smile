@@ -40,7 +40,7 @@ train_X = np.repeat(train_X[:, :, :, np.newaxis], img_chs, axis=3)
 train_X /= 255.0
 test_X /= 255.0
 
-model = applications.VGG19(weights = "imagenet", include_top=False, input_shape = (img_rows, img_cols, img_chs))
+model = applications.VGG16(weights = "imagenet", include_top=False, input_shape = (img_rows, img_cols, img_chs))
 
 # Freeze the layers we don't want to train. Here the first 15 layers are freezed because the smile dataset is relatively small.
 for layer in model.layers[:15]:
