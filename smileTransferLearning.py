@@ -53,8 +53,10 @@ test_X = X_test_new
     
 model = applications.VGG16(weights = "imagenet", include_top=False, input_shape = (48, 48, 3))
 
+print(model.layers.shape)
+exit()
 # Freeze the layers we don't want to train. Here the first 15 layers are freezed because the smile dataset is relatively small.
-for layer in model.layers[:15]:
+for layer in model.layers:
     layer.trainable = False
     
 #Adding custom Layers 
