@@ -16,8 +16,8 @@ import smiledataset
 run = wandb.init()
 config = run.config
 
-config.epochs=5
-config.batch_size=16
+config.epochs=10
+config.batch_size=64
 
 # load data
 train_X, train_y, test_X, test_y = smiledataset.load_data()
