@@ -13,8 +13,8 @@
 
 
 # Smile :)
-
-Smile Classifier - This repository contains the source code for a challenge I participated to create a classifier that can distinguish a smiling face.
+Recently, I participated in a 4-hour challenge called *Smile Classifier* organized by [Lukas Biewald](https://lukasbiewald.com/).
+This repository contains the source code for the challenge: to create a classifier that can distinguish a smiling face.
 
 ## Setup
 
@@ -61,7 +61,7 @@ wandb run smile.py
 - Experiment with activation functions
 
 ### Transfer Learning: [smileTransferLearning.py](./smileTransferLearning.py) Transfer learning based on VGG16
-- Fine tuning is still needed. 
+- Fine tuning is still needed. :construction:
 
 ### Other Fancy method, Maybe Effective:
 - Data Augmentation (https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html)
