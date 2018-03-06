@@ -14,6 +14,7 @@
 
 # Smile :)
 Recently, I participated in a 4-hour challenge called *Smile Classifier* organized by [Lukas Biewald](https://lukasbiewald.com/).
+
 This repository contains the source code for the challenge: to create a classifier that can distinguish a smiling face.
 
 ## Setup
