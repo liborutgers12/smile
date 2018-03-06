@@ -14,11 +14,11 @@
 
 # Smile :)
 
-Smile Classifier - The challenge is to create a classifier that can distinguish a smiling face.
+Smile Classifier - This repository contains the source code for a challenge I participated to create a classifier that can distinguish a smiling face.
 
 ## Setup
 
-Be sure to clone this repository and unzip the data on your AWS instance
+Be sure to clone this repository and unzip the data
 
 ```shell
 cd ~
@@ -26,10 +26,10 @@ git clone https://github.com/lukas/smile.git
 cd smile
 unzip master.zip
 ```
-
+### If you'd like use wandb to monitor your training...
 Create an account at https://app.wandb.ai/login?invited if you don't have one.  Copy an api key from your [profile](https://app.wandb.ai/profile) and paste it after calling `wandb login` below.
 
-In your AWS terminal run:
+In your terminal run:
 
 ```
 pip install -r requirements.txt --upgrade
@@ -64,10 +64,5 @@ wandb run smile.py
 - Data Augmentation (https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html)
 - Transfer Learning (https://www.learnopencv.com/keras-tutorial-transfer-learning-using-pre-trained-models/)
 Other ideas?
-
-## Stuck?
-
-1. Ask for or help
-2. https://blog.slavv.com/37-reasons-why-your-neural-network-is-not-working-4020854bd607
 
 
