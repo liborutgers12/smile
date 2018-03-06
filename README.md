@@ -60,9 +60,11 @@ wandb run smile.py
 - Change learning rate          :+1:
 - Experiment with activation functions
 
-### Fancier, Maybe Effective:
+### Transfer Learning: [smileTransferLearning.py](./smileTransferLearning.py) Transfer learning based on VGG16
+- Fine tuning is still needed. 
+
+### Other Fancy method, Maybe Effective:
 - Data Augmentation (https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html)
-- Transfer Learning (https://www.learnopencv.com/keras-tutorial-transfer-learning-using-pre-trained-models/)
-Other ideas?
+
 
 
